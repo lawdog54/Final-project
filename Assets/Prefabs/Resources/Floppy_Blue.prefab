@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e52713eb93d15543ac1bd191904896c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableResource
-  resourceName: FloppyDisk
+  resourceName: Disks
   amountPerCollect: 1
   usesRemaining: 1
   promptText: Press 'E' to collect

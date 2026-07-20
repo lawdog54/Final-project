@@ -3,12 +3,12 @@ using TMPro;
 public class ResourceCounter : MonoBehaviour
 {
 
-    public TextMeshProUGUI appleText;
+    public TextMeshProUGUI DisksText;
     public TextMeshProUGUI oreText;
-    public TextMeshProUGUI pearsText;
-    private int apples;
+    public TextMeshProUGUI GearsText;
+    private int Disks;
     private int ores;
-    private int pears;
+    private int Gears;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,27 +17,43 @@ public class ResourceCounter : MonoBehaviour
 
     private void UpdateUI()
     {
-        appleText.text = "Apples: " + apples;
-        pearsText.text = "Pears: " + pears;
+        DisksText.text = "Disks: " + Disks;
+        GearsText.text = "Gears: " + Gears;
         oreText.text = "Ores: " + ores;
     }
 
     public void AddResource(string resourceName, int amount)
     {
-        if (resourceName == "Apple")
+        if (resourceName == "Disks")
         {
-            apples += amount;
+            Disks += amount;
         }
-        else if (resourceName == "Ore")
+        else if (resourceName == "Gears")
+        {
+           Gears += amount;
+
+        if (Gears >= 5)
+        {
+            WinGame();
+        }
+        }
+        else if (resourceName == "Ores")
         {
             ores += amount;
         }
-        else if (resourceName == "Pear")
-        {
-            pears += amount;
-        }
+
         UpdateUI();
     }
+
+    private void WinGame()
+{
+    Debug.Log("You Win!");
+
+    // Stop the game
+    Time.timeScale = 0f;
+
+    // Later you can show a Win UI panel here
+}
 
 
 }

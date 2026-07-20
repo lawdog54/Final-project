@@ -12,12 +12,15 @@ public class InteractableResource : MonoBehaviour
     public string animationTrigger = "PickFruit";
 
     public bool destroyWhenEmpty = true;
+    public float batteryTimeBonus = 15f;
+    private GameTimer gameTimer;
 
     private ResourceCounter resourceCounter;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         resourceCounter = FindObjectOfType<ResourceCounter>();
+          gameTimer = FindObjectOfType<GameTimer>();
     }
 
     public void Interact()
@@ -30,6 +33,11 @@ public class InteractableResource : MonoBehaviour
         {
             resourceCounter.AddResource(resourceName, amountPerCollect);
         }
+
+           if (resourceName == "Batteries" && gameTimer != null)
+    {
+        gameTimer.AddTime(batteryTimeBonus);
+    }
         usesRemaining--;
         if (usesRemaining <= 0 && destroyWhenEmpty)
         {
@@ -37,6 +45,7 @@ public class InteractableResource : MonoBehaviour
         }
 
     }
+
 
 
 }
