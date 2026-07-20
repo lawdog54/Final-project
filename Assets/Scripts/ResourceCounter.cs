@@ -54,6 +54,23 @@ public class ResourceCounter : MonoBehaviour
 
     // Later you can show a Win UI panel here
 }
+public int GetGearCount()
+{
+    return Gears;
+}
 
+public bool RemoveResource(string resourceName, int amount)
+{
+    if (resourceName == "Gears")
+    {
+        if (Gears >= amount)
+        {
+            Gears -= amount;
+            UpdateUI();
+            return true;
+        }
+    }
 
+    return false;
+}
 }

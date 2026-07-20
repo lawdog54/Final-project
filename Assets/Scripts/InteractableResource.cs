@@ -44,6 +44,8 @@ public class InteractableResource : MonoBehaviour
             gameObject.SetActive(false);
         }
 
+        
+
     }
 
 
